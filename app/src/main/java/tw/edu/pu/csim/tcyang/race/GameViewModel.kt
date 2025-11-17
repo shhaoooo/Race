@@ -21,6 +21,8 @@ class GameViewModel: ViewModel() {
     var circleX by mutableStateOf(0f)
     var circleY by mutableStateOf(0f)
 
+    val horse = Horse()
+
     // 新增分數變數
     var score by mutableStateOf(0)
         private set
@@ -46,6 +48,11 @@ class GameViewModel: ViewModel() {
                 if (circleX >= screenWidthPx - 100){
                     circleX = 100f
                     score += 1  // 分數加1
+                }
+
+                horse.HorseRun()
+                if (horse.horseX >= screenWidthPx - 200){
+                    horse.horseX = 0
                 }
             }
         }
